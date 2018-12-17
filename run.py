@@ -27,5 +27,14 @@ def signup():
 			return jsonify(USER), 200
 		return jsonify({'message' : 'username already exist'}), 409
 
+@app.route('/api/v1/details', methods=['GET'])
+def user_details():
+	view={}
+	for each in USER:
+		view.update(USER)
+		return jsonify(view)
+	else:
+		return jsonify({"Message" : "No registered users"})
+
 if __name__ == '__main__':
 	app.run(debug=True)
