@@ -11,10 +11,11 @@ def home():
 
 @app.route('/api/v1/signup', methods=['POST'])
 def signup():
-	name = request.get_json()["name"]
-	username = request.get_json()["username"]
-	email = request.get_json()["email"]
-	password = request.get_json()["password"]
+	data = request.get_json()
+	name = data["name"]
+	username = data["username"]
+	email = data["email"]
+	password = data["password"]
 
 	if username not in USER:
 		USER.update({username:{"name":name, "email":email, "password":password}})
